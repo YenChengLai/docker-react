@@ -1,6 +1,10 @@
+language: generic
 sodu: required
 services:
   - docker
 
 before_install:
   - docker build -t yenchenglai/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true yenchenglai/docker-react npm run test
